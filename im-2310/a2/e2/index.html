@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="./filter.js" defer></script>
+    <script src="./arrays-&-for-loops.js" defer></script>
+
+    <!-- I have added this meta tag so that no matter what the size of the device viewing the browser is, 
+    everything will still be formatted the same. There shouldn't be any messes or scrambled format like last 
+    assignment. Hopefully. I know that the Flex Boxes/Containers/etc. and Grid Layouts do this as well, but 
+    this is just in case, since I've used it before. -->
+    <meta name="viewport" 
+    content="user-scalable=no,device-width=980px" />
+
+    <title>exercise 2</title>
+
+  </head>
+
+  <body>
+
+    <!-- Changed this to h1 so that later I can easily apply css to different sections in the browser. -->
+    <div>
+      <h1>
+        Interactive Media 1 Recipe List
+      </h1>
+    </div>
+
+    <hr /> 
+
+    <div class="FilterSection">     
+
+      <!-- I have changed the order of the 'Author' filterCategories to be in alphabetical order. -->
+        
+      <!-- I had originally had the FilterBox 'Skill Level' instead of 'Course', however the former only had two 
+      seperate categories, with only 'Easy' and 'Medium' level dishes and no 'High', which made the filterCategories 
+      feel incomplete to me, so I had decided to replace it with 'Course'. Having 3 or more options to click through 
+      just feels more satisfying to me, and most likely will to the visitors of the webpage as well. -->
+
+      <!-- For the filterCategories of the FilterBox 'Course', I have chosen to only have a 'Snack' category and no 
+      further divide into 'Savoury' or 'Sweet' snacks. They are all just considered as 'Snacks', and I find further divides 
+      a bit unnecessary. -->
+
+      <!-- I had originally made the filterCategories for the FilterBox 'Cook Time' '0-1', '1-2', '2-3' and '3+', however, 
+      since Recipe 13 had the cook time of ~3 hours, I had to change the limits of each category to what it is now so 
+      that I can actually put Recipe 13 into a filter (after all, ~3 doesn't mean above or below 3 hours, just around). 
+      I also chose to seperate each filterCategory into 'hours' rather than 'minutes' so as to keep the numerical values 
+      used short and easy to understand; it is easier for the mind to comprehend 0-2 hours than 115 minutes. -->
+
+      <!-- I debated using the signs used in maths to convey size (etc. <, ≤, >, ≥) for the FilterBox 'Cook Time', 
+      however, have decided not to, seeing how some people might not understand what '2<x≤4' means, and because '<' and '>' 
+      actually have functions in code and cannot be used. So I chose to use '-' instead, so '0-2 Hours' meant '0 to 2 Hours' 
+      and the '4+ Hours' is self-explanatory as 'more than 4 Hours'. -->
+
+      <!-- I have changed the FilterBox 'Cook Time' to 'Time'. This makes it neater, and maintains the alphabetical order 
+      of the FilterBoxes. I kept the word 'Hours' in each filterCategory rather than the FilterBox so that all the FilterBoxes 
+      can remain one worded. Again, this makes the filters look better. -->
+
+      <!-- Reasoning for not choosing the other div classes as possible filters: 
+
+      Publisher: There is already an 'Author' FilterBox, having a 'Publisher' one on top of that is a bit redundant, and people don't 
+      tend to look for the companies that had published a recipe.
+      
+      Cuisine: I chose not to have this one as a FilterBox for several reasons. For one, Maangchi is the only one who has Korean 
+      recipes, being Korean herself. This kind of makes the need for a 'Cuisine' Filter somewhat redundant, since most recipes 
+      would probably reflect their authors culutre or nationality. Furthermore, I was very confused by the filterCategories of 
+      'Fusion' and 'Western'. What is 'Fusion'? Which cultures are being mixed here? Which cuisines count as 'Western'? Do the 
+      'American', 'Italian' or 'French' recipes also count as 'Western'? Which part of the West? Norwegian cuisine is very 
+      different from Spanish cuisine. I'm confused, the audience is probably also confused, so let's just avoid the confusion 
+      altogether. 
+
+      Servings: unfortunately some recipes do not actually give a serving size, while others do, but don't have a unified quantitative 
+      measure; how much is 1 serving? Does 1 cookie count as 1 serving or do 2? Because I can't answer these questions, I chose not 
+      to use this category as a FilterBox.
+
+      Date Published + Updated: People don't tend to look for these either, and unless the viewer is living in a future world where 
+      cows or something are now extinct and so certain ingredients of a recipe may be unavailable and they need to view the date to 
+      determine this, I doubt people would look for a date filter on a browser for recipes.
+
+      Special Equipment: Not enough recipes need one, and the ones that do are a bit too miscellaneous. One recipe also requires two 
+      special equipments, which, having the same recipe show up twice using filterCategories relating to the same FilterBox is a bit 
+      weird. -->
+
+      <!-- I had actually wanted to create a 'Dropdown Filter' instead but wasn't sure if I'm allowed to as then the details class will 
+      no longer be "FilterBox" but "Dropdown" instead. Maybe next time. -->
+
+      <!-- I have changed the 'All' categories (e.g. All Authors, All Courses) that let you see all the recipes into 'View All'. This is 
+      mainly because I couldn't find a good way to articulate 'All Times' - it just sounds weird - so 'View All' it is. -->
+
+      <!-- I have changed the filterCategories for the 'Time' FilterBox as the duration of '0-2 Hours' was too broad and contained too 
+      many recipes that left the filterCategories feeling unbalanced to me. Instead, by separating it into a duration of '0-1 Hours' and 
+      a duration of '1-2 Hours', the filters feel more balanced. The times given are also now more exponential than linear (previously 
+      it was in chunks of 2 hour blocks (e.g. 0-2, then 2-4) and now it's doubled each time (e.g. 0-1, 1-2, 2-4)), which I think is still 
+      a bit iffy, but because Recipe 13 requires around 3 hours rather than solidly 3 hours, I'd rather err on the safe side. -->
+
+      <!-- Upon further research on recipe blogs, I have decided to get rid of the 'Time' FilterBox altogether and replace it with 'Cuisine' 
+      instead, despite my previous objections to it. This is because on all the recipe websites I have visited, none have a filter dividing 
+      recipes by the time it'll take to make the food, but many are divided based on which country the recipe originates from. As such, I have 
+      chosen to include 'Cuisine' as a FilterBox instead. I'll just have to trust that people know to look at the times noted on recipes and 
+      don't require others to have to specifically point it out to them. -->
+
+      <details class="FilterBox">
+        <summary>AUTHOR</summary>
+        <button class="FilterButton" onclick='filterCategory("CLM", this)'>Carla Lalli Music</button>
+        <button class="FilterButton" onclick='filterCategory("HM", this)'>Hetty McKinnon</button>
+        <button class="FilterButton" onclick='filterCategory("KLA", this)'>J. Kenji López-Alt</button>
+        <button class="FilterButton" onclick='filterCategory("M", this)'>Maangchi</button>
+        <button class="FilterButton" onclick='filterCategory("RecipeBox", this)'>View All</button>
+      </details>
+
+      <details class="FilterBox">
+        <summary>COURSE</summary>
+        <button class="FilterButton" onclick='filterCategory("Sn", this)'>Snack</button>
+        <button class="FilterButton" onclick='filterCategory("Sa", this)'>Salad</button>
+        <button class="FilterButton" onclick='filterCategory("Ma", this)'>Main</button>
+        <button class="FilterButton" onclick='filterCategory("De", this)'>Dessert</button>
+        <button class="FilterButton" onclick='filterCategory("RecipeBox", this)'>View All</button>
+      </details>
+      
+      <details class="FilterBox">
+        <summary>CUISINE</summary>
+        <button class="FilterButton" onclick='filterCategory("Ame", this)'>American</button>
+        <button class="FilterButton" onclick='filterCategory("Fre", this)'>French</button>
+        <button class="FilterButton" onclick='filterCategory("Fus", this)'>Fusion</button>
+        <button class="FilterButton" onclick='filterCategory("Ita", this)'>Italian</button>
+        <button class="FilterButton" onclick='filterCategory("Kor", this)'>Korean</button>
+        <button class="FilterButton" onclick='filterCategory("Wes", this)'>Western</button>
+        <button class="FilterButton" onclick='filterCategory("NA", this)'>North African</button>
+        <button class="FilterButton" onclick='filterCategory("Rus", this)'>Russian</button>
+        <button class="FilterButton" onclick='filterCategory("RecipeBox", this)'>View All</button>
+      </details>
+
+      <details class="FilterBox">
+        <summary>DIETARY</summary>
+        <button class="FilterButton" onclick='filterCategory("Veg", this)'>Vegetarian</button>
+        <button class="FilterButton" onclick='filterCategory("Pes", this)'>Pescatarian</button>
+        <button class="FilterButton" onclick='filterCategory("MB", this)'>Meat-Based</button>
+        <button class="FilterButton" onclick='filterCategory("RecipeBox", this)'>View All</button>
+      </details>
+
+    </div>
+
+    <hr /> 
+
+    <!-- Recipe 1 -->
+    <div class="RecipeBox HM Ma Ita Veg">
+
+      <a href=https://www.abc.net.au/everyday/baked-puttanesca-risotto-with-tomato-olives-lemon-parsley-recipe/11270338>Full Recipe</a>
+
+      <!-- Got rid of the divs for the titles of the food because really, we don't need them. They're not being used as a filter option 
+      anyways so might as well just be rid of them altogether. Instead, I have replaced them with a heading tag, because having those make 
+      more sense layout-wise. -->
+      <h2>
+        Baked Puttanesca Risotto with Olives, Lemon and Parsley
+      </h2>
+
+      <!-- Getting rid of the divs for everything else that isn't part of a FilterBox or part of the ImageContainers. I'm going to see if I 
+      can structure them into a table of sorts so that the information is formatted better and is easily accessible/can be seen easily. -->
+      <h4>
+        Hetty Mckinnon
+      </h4>
+      
+      <div class="RecipeImageContainer">
+
+        <img class="RecipeImg" src="./images/Puttanesca.jpg" alt="bowl of puttanesca pasta"/>
+
+        <p class="Attribution">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/10559879@N00/5996763901">Spaghetti Puttanesca con Tonno</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/10559879@N00">avlxyz</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/2.0/?ref=openverse">
+            CC BY-NC-SA 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p>
+
+      </div>
+
+      <!-- I'm going to be placing the rest of this information into a table format, similar to how actual recipe websites would so that it's easier for viewers 
+      to find the information they want. I'll also be restructuring the order of what information appears first based on how important the information is to viewers 
+      (e.g. the Serving size is considered a higher priority than who the Publisher is to the viewers). I'll also make a few new categories (e.g. separate Time to 
+      Cook nto Prep Time, Cook Time and Total Time so that the viewers don't have to do some mental arithmetics on their own.) -->
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>10 Minutes</td>
+          <td>30 Minutes</td>
+          <td>40 Minutes</td>
+          <td>4 to 6</td>
+        </tr>
+        <!-- As can see, I have changed my mind on deleting the other classes. It'll probably be best to keep them, just in case. -->
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Low</td>
+          <td>Main</td>
+          <td>Italian</td>
+          <td>Vegetarian</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>Ovenproof Dutch Oven</td>
+          <td>ABC Everyday</td>
+          <td>3 Jul 2019</td>
+          <td>29 Jul 2019</td>
+        </tr>
+        <!-- Why are the dates formatted the way they are and not like 29-07-2019? It's because different people from different 
+        countries all write the date differently. Some do month-day-year, some do day-month-year and some do year-month-day, etc. 
+        Actually writing the month down prevents any possible confusion. -->
+      </table>
+
+    </div>
+    
+    <!-- Recipe 2 -->
+    <div class="RecipeBox HM Sa Ita Veg">
+
+      <!-- I've decided to place the recipe links in the top left corner for every RecipeBox so that it is easily accessible, but also 
+      out of the way enough that viewers should not accidentally click on the link. I had originally also wanted to make it so that a 
+      new tab is opened when you click the link so that you don't have to leave the website, but W3Schools say that all the major browsers 
+      (e.g. Google Chrome, Microsoft Edge) is not supported and I couldn't really find another method, so I guess it's just this. -->
+      <a href=https://www.abc.net.au/everyday/caprese-salad-slow-roasted-tomato-rocket-basil-gremolata-recipe/10776846>Full Recipe</a>
+
+      <h2>
+        Caprese Salad with Slow-Roasted Tomatoes, Rocket and Basil Gremolata
+      </h2>
+
+      <h4>
+        Hetty Mckinnon
+      </h4>
+
+      <div class="RecipeImageContainer">
+
+        <img class="RecipeImg" src="./images/Caprese.jpg" alt="plate of caprese salad" />
+
+        <p class="Attribution">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/25597828@N00/4254859304">Caprese Salad</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/25597828@N00">wEnDaLicious</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nd-nc/2.0/jp/?ref=openverse">
+            CC BY-NC-ND 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p>
+
+      </div>
+
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>75-105 Minutes</td>
+          <td>75-105 Minutes</td>
+          <td>N/A</td>
+        </tr>
+        <!-- I have taken for both 'N/A' and '?' to mean the same thing, and so any section left blank originally will be 
+        filled with 'N/A'. -->
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Low</td>
+          <td>Salad</td>
+          <td>Italian</td>
+          <td>Vegetarian</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>ABC Everyday</td>
+          <td>4 Feb 2019</td>
+          <td>17 Dec 2020</td>
+        </tr>
+      </table>
+
+    </div>
+    
+    <!-- Recipe 3 -->
+    <div class="RecipeBox KLA Sn Fus Veg">
+
+      <a href=https://www.seriouseats.com/crispy-enoki-and-onion-fritter-with-thai-curry-mayo-recipe>Full Recipe</a>
+
+      <h2>
+        Crispy Enoki and Onion Fritters with Thai Curry Mayo Recipe
+      </h2>
+
+      <h4>
+        J. Kenji López-Alt
+      </h4>
+
+      <!-- I have made the divs of several recipes into "RecipeImageContainer2" and img classes into "RecipeImg2" so that I can 
+      resize them (they're too long vetically otherwise). The same goes for the Attribution; Attribution -> Attribution2. -->
+      
+      <div class="RecipeImageContainer2">
+
+        <img class="RecipeImg2" src="./images/Enoki.jpg" alt="enoki mushrooms" />
+
+        <p class="Attribution2">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/48600074651@N01/107148202">brown enoki mushrooms</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/48600074651@N01">chotda</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nd-nc/2.0/jp/?ref=openverse">
+            CC BY-NC-ND 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p> 
+
+      </div>
+
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>30 Minutes</td>
+          <td>30 Minutes</td>
+          <td>4 to 6</td>
+        </tr>
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Medium</td>
+          <td>Snack (Savoury)</td>
+          <td>Fusion</td>
+          <td>Vegetarian</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>Serious Eats</td>
+          <td>9 Oct 2012</td>
+          <td>30 Aug 2018</td>
+        </tr>
+      </table>
+
+    </div>
+    
+    <!-- Recipe 4 -->
+    <div class="RecipeBox M Sn Kor Veg">
+
+      <a href=https://www.maangchi.com/recipe/jjinppang>Full Recipe</a>
+
+      <h2>
+        Fluffy Steamed Buns filled with Sweet Red Beans
+      </h2>
+
+      <h4>
+        Maangchi
+      </h4>
+
+      <div class="RecipeImageContainer">
+
+        <img class="RecipeImg" src="./images/Red_Bean_Bun.jpg" alt="ripped open steamed bun with red bean paste" />
+
+        <p class="Attribution">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/10559879@N00/33435831771">Sweet red bean bun 豆沙包 AUD2 - Wing Loong, Melbourne</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/10559879@N00">avlxyz</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/2.0/?ref=openverse">
+            CC BY-NC 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p>
+
+      </div>
+
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>11 Hours</td>
+          <td>15 Minutes</td>
+          <td>11 Hours 15 Minutes</td>
+          <td>10</td>
+        </tr>
+        <!-- I have 'Servings/Yield' because some recipes do not say serving size, but do say how many individual pieces are 
+        produced. Also, I imagine for food items such as cookies (or these buns) 1 piece = 1 serving. Then again, some people will 
+        eat entire packets of cookies and still want more, so the 'Yield' is there for clarification. -->
+        <!-- Speaking of buns, I can't believe this recipe says they're Korean cuisine. They originated from China damnit. :( -->
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Medium</td>
+          <td>Snack (Sweet)</td>
+          <td>Korean</td>
+          <td>Vegetarian</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>Maangchi</td>
+          <td>19 Dec 2017</td>
+          <td>11 Aug 2021</td>
+        </tr>
+      </table>
+
+    </div>
+    
+    <!-- Recipe 5 -->
+    <div class="RecipeBox KLA Sn Wes Veg">
+
+      <a href=https://www.seriouseats.com/the-food-lab-best-chocolate-chip-cookie-recipe>Full Recipe</a>
+
+      <h2>
+        The Food Lab's Chocolate Chip Cookies
+      </h2>
+
+      <h4>
+        J. Kenji López-Alt
+      </h4>
+
+      <div class="RecipeImageContainer">
+
+        <img class="RecipeImg" src="./images/Cookies.jpg" alt="plate of chocolate chip cookies" />
+
+        <p class="Attribution">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/70757891@N00/7133349441">Browned butter chocolate chip cookies</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/70757891@N00">grongar</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by/2.0/?ref=openverse">
+            CC BY 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p>
+
+      </div>
+      
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>45 Minutes</td>
+          <td>35 Minutes</td>
+          <td>1 Hour 20 Minutes</td>
+          <td>28</td>
+        </tr>
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Low</td>
+          <td>Snack (Sweet)</td>
+          <td>Western</td>
+          <td>Vegetarian</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>Serious Eats</td>
+          <td>20 Dec 2013</td>
+          <td>16 Sep 2022</td>
+        </tr>
+      </table>
+
+    </div>
+    
+    <!-- Recipe 6 -->
+    <div class="RecipeBox KLA Sn Fus Veg">
+
+      <a href=https://www.seriouseats.com/grilled-cheese-with-kimchi-recipe>Full Recipe</a>
+
+      <h2>
+        Grilled Cheese With Kimchi Recipe
+      </h2>
+
+      <h4>
+        J. Kenji López-Alt
+      </h4>
+
+      <div class="RecipeImageContainer">
+
+        <img class="RecipeImg" src="./images/Grilled_Cheese.jpg" alt="grilled cheese sandwich with pickles" />
+
+        <p class="Attribution">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/85508296@N00/8340994832">Lefty’s Food Truck</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/85508296@N00">cherrylet</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/2.0/?ref=openverse">
+            CC BY-NC-SA 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p>
+
+      </div>
+      
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>12 Minutes</td>
+          <td>12 Minutes</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Low</td>
+          <td>Snack (Savoury)</td>
+          <td>Fusion</td>
+          <td>Vegetarian</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>Serious Eats</td>
+          <td>28 Apr 2013</td>
+          <td>21 Sep 2022</td>
+        </tr>
+      </table>
+
+    </div>
+    
+    <!-- Recipe 7 -->
+    <div class="RecipeBox CLM Ma Ame MB">
+
+      <a href=https://www.patreon.com/posts/recipe-hands-off-60369279>Full Recipe</a>
+
+      <h2>
+        Hands-Off Pork and Beans
+      </h2>
+
+      <h4>
+        Carla Lalli Music
+      </h4>
+
+      <div class="RecipeImageContainer">
+
+        <img class="RecipeImg" src="./images/Pork_Beans.jpg" alt="pot of pork and beans" />
+
+        <p class="Attribution">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/22798667@N00/6158931731">spicy pork and bean chili</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/22798667@N00">telepathicparanoia</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nd/2.0/?ref=openverse">
+            CC BY-ND 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p> 
+
+      </div>
+      
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>Overnight</td>
+          <td>4 Hours</td>
+          <td>4+ Hours</td>
+          <td>6</td>
+        </tr>
+        <!-- Honestly, I have no idea how to calculate 'Overnight', so I'll just put it down as '4+ Hours'. I mean, technically it's correct. -->
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Medium</td>
+          <td>Main</td>
+          <td>American</td>
+          <td>Meat-Based</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>Carla Lalli Music</td>
+          <td>28 Dec 2021</td>
+          <td>N/A</td>
+        </tr>
+      </table>
+
+    </div>
+    
+    <!-- Recipe 8 -->
+    <div class="RecipeBox M Sn Kor Veg">
+
+      <a href=https://www.maangchi.com/recipe/kimchijeon>Full Recipe</a>
+
+      <h2>
+        Kimchi Pancake
+      </h2>
+
+      <h4>
+        Maangchi
+      </h4>
+
+      <div class="RecipeImageContainer">
+
+        <img class="RecipeImg" src="./images/Kimchi_Pancake.jpg" alt="kimchi pancake with bowl of dipping sauce" />
+
+        <p class="Attribution">
+          "<a target="_blank" rel="noopener noreferrer" href="https://commons.wikimedia.org/w/index.php?curid=54768084">File:Kimchibuchimgae (kimchi pancake).jpg</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://pixabay.com/ko/users/sharonang-99559/">sharonang</a> is marked with 
+          <a target="_blank" rel="noopener noreferrer" href="http://creativecommons.org/publicdomain/zero/1.0/deed.en?ref=openverse">
+            CC0 1.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/zero.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p>
+
+      </div>
+      
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>15 Minutes</td>
+          <td>15 Minutes</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Low</td>
+          <td>Snack (Savoury)</td>
+          <td>Korean</td>
+          <td>Vegetarian</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>Maangchi</td>
+          <td>27 Feb 2020</td>
+          <td>1 Aug 2021</td>
+        </tr>
+      </table>
+
+    </div>
+    
+    <!-- Recipe 9 -->
+    <div class="RecipeBox KLA Ma NA Veg">
+
+      <a href=https://www.seriouseats.com/shakshuka-north-african-shirred-eggs-tomato-pepper-recipe>Full Recipe</a>
+
+      <h4>
+        Shakshuka (North African–Style Poached Eggs in Spicy Tomato Sauce)
+      </h4>
+
+      <p1>
+        J. Kenji López-Alt
+      </p1>
+
+      <div class="RecipeImageContainer">
+
+        <img class="RecipeImg" src="./images/Shakshuka.jpg" alt="pan filled with shakshuka" />
+
+        <p class="Attribution">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/33993074@N00/14288893837">Shakshuka</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/33993074@N00">joyosity</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by/2.0/?ref=openverse">
+            CC BY 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p>
+
+      </div>
+      
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>35 Minutes</td>
+          <td>35 Minutes</td>
+          <td>4 to 6</td>
+        </tr>
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Medium</td>
+          <td>Main</td>
+          <td>North African</td>
+          <td>Vegetarian</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>Serious Eats</td>
+          <td>28 Sep 2016</td>
+          <td>10 Aug 2022</td>
+        </tr>
+      </table>
+
+    </div>
+    
+    <!-- Recipe 10 -->
+    <div class="RecipeBox CLM Ma Ita Pes">
+
+      <a href=https://www.patreon.com/posts/pasta-with-sauce-45042575>Full Recipe</a>
+
+      <h4>
+        Spaghetti with Melted Cauliflower Sauce
+      </h4>
+
+      <p1>
+        Carla Lalli Music
+      </p1>
+
+      <div class="RecipeImageContainer2">
+
+        <img class="RecipeImg2" src="./images/Cauliflower_Spaghetti.jpg" alt="bowl of spaghettie with cauliflower sauce" />
+
+        <p class="Attribution2">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/35468144810@N01/6240477142">Spaghetti with Cauliflower and Anchovy Breadcrumbs</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/35468144810@N01">Girl Interrupted Eating</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by/2.0/?ref=openverse">
+            CC BY 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p>
+
+      </div>
+      
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>1 Hour 10 Minutes</td>
+          <td>1 Hour 10 Minutes</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Low</td>
+          <td>Main</td>
+          <td>Italian</td>
+          <td>Pescatarian</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>Carla Lalli Music</td>
+          <td>16 Dec 2020</td>
+          <td>N/A</td>
+        </tr>
+      </table>
+
+    </div>
+    
+    <!-- Recipe 11 -->
+    <div class="RecipeBox M Ma Kor MB">
+
+      <a href=https://www.maangchi.com/recipe/yangnyeom-tongdak>Full Recipe</a>
+
+      <h4>
+        Sweet, Sour, & Spicy Korean Fried Chicken
+      </h4>
+
+      <p1>
+        Maangchi
+      </p1>
+
+      <div class="RecipeImageContainer2">
+
+        <img class="RecipeImg2" src="./images/Korean_Fried_Chicken.jpg" alt="plate of fried chicken with pickles and kimchi" />
+
+        <p class="Attribution2">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/40726522@N02/8563518350">Bon Chon Korean Fried Chicken Wings</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/40726522@N02">powerplantop</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nd-nc/2.0/jp/?ref=openverse">
+            CC BY-NC-ND 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p> 
+
+      </div>
+      
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>45-50 Minutes</td>
+          <td>45-50 Minutes</td>
+          <td>3 to 4</td>
+        </tr>
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Medium</td>
+          <td>Main</td>
+          <td>Korean</td>
+          <td>Meat-Based</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>Maangchi</td>
+          <td>27 Jan 2011</td>
+          <td>3 Aug 2021</td>
+        </tr>
+      </table>
+
+    </div>
+    
+    <!-- Recipe 12 -->
+    <div class="RecipeBox KLA Ma Rus MB">
+
+      <a href=https://www.seriouseats.com/ultimate-beef-stroganof-recipe>Full Recipe</a>
+
+      <h4>
+        The Ultimate Beef Stroganoff Recipe
+      </h4>
+
+      <p1>
+        J. Kenji López-Alt
+      </p1>
+
+      <div class="RecipeImageContainer">
+
+        <img class="RecipeImg" src="./images/Stroganoff.jpg" alt="bowl of beef stroganoff pasta" />
+
+        <p class="Attribution">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/66606673@N00/4597118575">Beef Stroganoff</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/66606673@N00">cobalt123</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/2.0/?ref=openverse">
+            CC BY-NC-SA 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p>
+
+      </div>
+      
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>55 Minutes</td>
+          <td>55 Minutes</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Medium</td>
+          <td>Main</td>
+          <td>Russian</td>
+          <td>Meat-Based</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>Serious Eats</td>
+          <td>9 Jan 2015</td>
+          <td>27 Aug 2020</td>
+        </tr>
+      </table>
+
+    </div>
+    
+    <!-- Recipe 13 -->
+    <div class="RecipeBox CLM De Fre Veg">
+
+      <a href=https://www.patreon.com/posts/recipe-vanilla-60100711>Full Recipe</a>
+
+      <h4>
+        Vanilla-Brown Butter Pear Tart
+      </h4>
+
+      <p1>
+        Carla Lalli Music
+      </p1>
+
+      <div class="RecipeImageContainer2">
+
+        <img class="RecipeImg2" src="./images/Pear_Tart.jpg" alt="pear tart on a table" />
+
+        <p class="Attribution2">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/37829433@N03/4711738063">Tarte Amandines aux Poires - Almond-Pear Tart 0205-1550</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/37829433@N03">Eat my Cake now</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nd-nc/2.0/jp/?ref=openverse">
+            CC BY-NC-ND 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nd.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p>
+
+      </div>
+      
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>~3 Hours</td>
+          <td>~3 Hours</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Medium</td>
+          <td>Dessert</td>
+          <td>French</td>
+          <td>Vegetarian</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>Bench Scraper, Tart Pan</td>
+          <td>Carla Lalli Music</td>
+          <td>20 Dec 2021</td>
+          <td>N/A</td>
+        </tr>
+      </table>
+
+    </div>
+
+    <!-- Recipe 14 -->
+    <div class="RecipeBox HM Ma Fus Veg">
+
+      <a href=https://www.abc.net.au/everyday/vegetarian-carbonara-with-mushrooms-and-miso/12426392>Full Recipe</a>
+
+      <h2>
+        Vegetarian Carbonara with Mushrooms, Miso and Parmesan
+      </h2>
+
+      <h4>
+        Hetty Mckinnon
+      </h4>
+
+      <div class="RecipeImageContainer">
+
+        <img class="RecipeImg" src="./images/Mushroom_Carbonara.jpg" alt="pan filled with mushroom carbonara pasta" />
+
+        <p class="Attribution">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/22508531@N08/49471971493">Mushroom carbonara</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.flickr.com/photos/22508531@N08">Like_the_Grand_Canyon</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/2.0/?ref=openverse">
+            CC BY-NC 2.0 <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>
+        </p>
+
+      </div>
+      
+      <table>
+        <tr>
+          <th>Prep Time</th>
+          <th>Cook Time</th>
+          <th class="TimeToCook">Total Time</th>
+          <th class="Servings">Servings/Yield</th>
+        </tr>
+        <tr>
+          <td>15 Minutes</td>
+          <td>15 Minutes</td>
+          <td>30 Minutes</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <th class="SkillLevel">Skill Level</th>
+          <th class="Course">Course</th>
+          <th class="Cuisine">Cuisine</th>
+          <th class="Dietary">Dietary</th>
+        </tr>
+        <tr>
+          <td>Low</td>
+          <td>Main</td>
+          <td>Fusion</td>
+          <td>Vegetarian</td>
+        </tr>
+        <tr>
+          <th class="SpecialEquipment">Special Equipment</th>
+          <th class="Publisher">Publisher</th>
+          <th class="DatePublished">Date Published</th>
+          <th class="DateUpdated">Date Updated</th>
+        </tr>
+        <tr>
+          <td>N/A</td>
+          <td>ABC Everday</td>
+          <td>9 Jul 2020</td>
+          <td>26 Feb 2021</td>
+        </tr>
+      </table>
+
+    </div>
+
+    </section>
+
+    <!-- It's unfortunate that we don't have the recipes included as well in the codes otherwise it'll probably be easier to make a website 
+    similar to most recipe browsers. -->
+
+  </body>
+
+</html>
