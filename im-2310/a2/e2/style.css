@@ -1,0 +1,304 @@
+/* z-index order */
+
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+}
+
+/* The colour palette I have chosen is based upon what colours people generally find appetising - these are
+colours most often associated with food. Hues such as red and yellow are colours that can increase a person's 
+appetite, hence why they're used so much in the branding of fast food restaurants. On the other hand, colours 
+such as blue lead to a decrease in appetite, so I won't be including them as part of the browser design. */
+
+/* I also chose this palette because these are hues that often appear on strawberry or raspberry cheesecakes, 
+and I find them aesthetically pleasing. If you were to look at other recipe websites, the hues they use most 
+often is red, followed by white, then yellow and and brown, so I think that this colour palette is  on track 
+with what you would normally expect from recipe browsers. */
+
+/* This goes for all my font colours as well. */
+:root{
+  --col-01: #fbf1d1;
+  --col-02: #CE494A;
+  --col-03: #F58786;
+  --col-04: #ef9816;
+  --border: 3.5px solid var(--col-02);
+}
+
+/* I tried installing the font-family 'Corben' to use for the h1. Clearly it has not worked, so 
+I had to change the font instead to 'Courier New' as it is the most similar in style to the one 
+I had originally wanted. */
+h1{
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+h2{
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+/* Came back and added some paddiing here because the link and author name are both still too close to the 
+recipe name. */
+
+/* Since the recipe link is located on the left side of each recipe, I thought it would be nice to place 
+the author's names on the right side to balance it out. */
+h4{
+  text-align: right;
+  color:  #ef9816;
+  font-size: 120%;
+}
+/*Made the font size bigger so that the author's name is more visible. */
+
+/* I have implemented some changes to the link when interacted with so that users are aware they have 
+already or are interacting with a link. This way, they can easily see which recipes they have already 
+visited, or that they have made an interaction with a link on the website. */
+a:link{
+  color:  #ef9816;
+  font-size: 110%;
+}
+a:visited{
+  color:  #f37171;
+  font-size: 110%;
+}
+a:hover{
+  color:  #8e3b00;
+  font-size: 110%;
+}
+a:active{
+  color:  #f37171;
+  font-size: 110%;
+}
+/* Increased the link font-size so that it is more visible to the viewers as well., otherwise, it looks 
+somewhat off balanced with everything else. */
+
+body{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--col-01);
+  color: var(--col-02);
+  padding: 2vw;
+}
+
+.RecipeBox{
+  display: flex;
+  flex-direction: column;
+  border: var(--border);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border: 3.5px solid #BE2223;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+/* Icon used for the border is from: https://www.flaticon.com/free-icons/dinner. I have chosen to create a border 
+using this icon as it is food themed, and would appear to be a more thematically relevant border than the ones you 
+can normally just code in. It is also more stylised, and looks better than a plain lined border. */
+
+/* Never mind. The icon border did not work, seeing how no matter what I did it just would not appear on screen, so 
+I've reverted back to the previous border used. */
+
+/* I chose a slightly rounded border so that the website layout doesn't appear to be too rigid. This, along with the 
+font styles chosen should make viewers more relaxed when scrolling through the recipes. */
+
+.FilterSection{
+  border: 3.5px solid #BE2223;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.FilterBox{
+  color: #BE2223;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/* I have chosen to use this cursive font for the rest of the browser as the font style is rather simplistic and casual 
+looking - it's no Times New Roman, that's for sure. It should feel more welcoming to viewers as it's rather dissimilar 
+to fonts used in serious contexts (e.g. essays, legal documents). My only worry is that the font is rather similar to 
+the legendary, rage-inducing font known as Comic Sans, and it's never good for any website to induce rage in its viewers. 
+Except maybe news media. Though those don't want you mad at the website either, just the news itself. */
+
+.FilterButton{
+  background-color:  #F58786;
+  padding: 10px 20px;
+  color:  #fbf1d1;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+/* So, slight problem with the cursive font. On my laptop (an HP Omen), the cursive font shows up as this sans-serif, Comic 
+Sans-esque font, so I uploadeded it onto GitHub. I have just checked the browser on my phone though, and damn, it's become 
+actual cursive - the fancy kind. So I'll be replacing all of the sections with a cursive font with the 'Trebuchet MS' font, 
+because out of all the ones available on Visual Studio Code, it is the one most stylistically similar to the cursive font I 
+originally thought I had. But hey, it looks a lot less like Comic Sans now so it won't drive the viewers mad anymore! */
+
+.SelectedFilter{
+  color: #BE2223;
+}
+
+.RecipeLink{
+
+}
+
+.RecipeName{
+  
+}
+
+.Author{
+
+}
+
+/* For the life of me I could not figure out how to keep the same styling after a FilterButton has 
+been clicked. Everything just resets to how it was before. */
+
+/* After much fiddling about, I finally figured it out. It's a bit hard to say how I figured it out 
+because I essentially just input random numbers and code, but hey, it worked. I'm not about to look 
+a gift horse in the mouth. */
+
+/* Added some padding because I thought that the image was too close to the author's name. */
+.RecipeImageContainer{
+  display: relative;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 25px;
+}
+
+.RecipeImageContainer2{
+  display: relative;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 25px;
+}
+
+/* I had originally wanted to include a polaroid-esque border to the images, but ultimately decided not to 
+because 1: the code for it was not operating well and 2: I already have the Attributions appearing below the 
+images, and having a polaroid border interferes with that too much. */
+.RecipeImg{
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.RecipeImg2{
+  display: block;
+  width: 75%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Added some margins on the bottom so that the Attributions are not in contact with the table. */
+.Attribution{
+  position: auto; 
+  bottom: 0; 
+  background: rgba(110, 60, 0, 0.75);
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: #f1f1f1;
+  font-size: 15px;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Had to add in margins so that the text box isn't off center and is the same length as the image. */
+.Attribution2{
+  position: auto; 
+  margin-right: auto;
+  margin-left: auto;
+  bottom: 0; 
+  background: rgba(110, 60, 0, 0.75);
+  color: #f1f1f1; 
+  width: 75%;
+  transition: .5s ease;
+  opacity:0;
+  color: #f1f1f1;
+  font-size: 15px;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 25px;
+  }
+
+/* Here I made it so that the Attributions will only show up if you hover the cursor over the image 
+of the food. Stylistically, it looks and functions better this way, as I imagine most people generally 
+don't want to see any legalese when browsing for a recipe to cook. */
+.RecipeImageContainer:hover .Attribution{
+  opacity: 1;
+}
+
+.RecipeImageContainer2:hover .Attribution2{
+  opacity: 1;
+}
+/* The Attributions should have appeared on top of the RecipeImgs but the layout has gone all weird (again). 
+Either it is sticking to the wrong sections of the images, or it doesn't appear or is in a completely new 
+Recipe Box altogether. So instead, I have chosen to place it below the RecipeImgs. I have also gone and changed 
+the Attribution background-color to a brown rather than the original black, to maintain the colour palette I 
+have throughout the website. */
+
+.Publisher{
+
+}
+
+.Cuisine{
+
+}
+
+.TimeToCook{
+
+}
+
+.SkillLevel{
+
+}
+
+.Course{
+
+}
+
+.Servings{
+
+}
+
+.Dietary{
+
+}
+
+.DatePublished{
+
+}
+
+.DateUpdated{
+
+}
+
+.SpecialEquipment{
+
+}
+
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 2px solid #BE2223;
+  border-radius: 10px;
+}
+
+th, td{
+  text-align: center;
+  padding: 15px;
+  border: 2px solid #BE2223;
+}
+
+tr:nth-child(even){
+  background-color: #fbf1d1;
+  color: #f37171;
+}
+
+tr:nth-child(odd){
+  background-color: #f37171;
+  color: #fbf1d1;
+}
