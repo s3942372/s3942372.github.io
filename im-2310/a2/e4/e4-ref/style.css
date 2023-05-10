@@ -1,0 +1,219 @@
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+}
+
+/* Basis for colour palette comes from 1bit Monitor Glow Palette by Polyducks */
+/* https://lospec.com/palette-list/1bit-monitor-glow */
+/* you're welcome to change the colours if you want or any of the other general page style */
+:root{
+  --col-01:#000000;
+  --col-02:#f0f6f0;
+  --col-03:#5252ff;
+  --col-04:#b6e878;
+  --col-05:#bcbdbc;
+  --col-06:#6f6f6f;
+  --border: 1px solid var(--col-02);
+}
+/* I have changed the colour of --col-01 to pure black because previously the off-shade of black 
+did not match with the black of the play/pause and mute/unmute buttons. By changing it, I can be 
+assured that nothing looks slightly off. */
+
+.video-player-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* becuase I want to overlay the play icon on the video they need to be in their own wrapper */
+.video-element-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+#videoElement{
+  width: 100%;
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+#videoPlayOverlay{
+  width: 8rem;
+  height: 8rem;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: center;
+  align-self: center;
+  opacity: 0.6;
+  display: none;
+}
+
+.video-controls-wrapper{
+  display: flex;
+  justify-content: center;
+}
+/* this overwrites the above display:flex - something which is then undone when the JS loads */
+#controlsWrapper{
+  display: none;
+}
+
+.video-control-button{
+  width: 2rem;
+  height: 2rem;
+  padding: .1rem;
+  border: none;
+  cursor: pointer;
+}
+.video-control-button:hover{
+  background-color: var(--col-05);
+}
+.video-control-button:active{
+  background-color: var(--col-06);
+}
+.button-icon{
+  pointer-events: none;
+}
+
+#playButton{
+  background-image: url('./icons/play.svg');
+}
+
+#muteButton{
+  background-image: url('./icons/mute.svg');
+}
+
+input#volumeSlider{
+  width: 70px;
+  color: #000000;
+  background: linear-gradient(to right, #000000 0%, #000000 50%, #6f6f6f 50%, #6f6f6f 100%);
+}
+/* So that the slider changes colour whenever the volume is changed like it is on YouTube and Vimeo, I had to implement 
+a linear gradient. I have chosen to use the greyscale colours on the colour palette, simply because I feel as though the 
+buttons should be more muted in colour so as not to distract from the contents of the video itself. Furthermore, the 
+play/pause and mute/unmute buttons are black, so I felt that the slider should match so as to not affect the visual hierarchy 
+too much. The volume slider on YouTube also is the same colour as the buttons (white), so I felt that this would be the 
+correct decision to make. */
+
+/* I have chosen to make the second colour of the slider '--col-06' as it is the colour that the buttons change to when 
+hovered over with the cursor. I wish to introduce as few new colours to the bar beneath the video as possible to keep the 
+visual hierarchy stable. Not one button should stand out more than the others. */
+
+/* I had originally wanted to make it so that the volume slider appears when the volume button is clicked or hovered over, but 
+one, I couldn't figure out how to do that, and two, I unfortunately didn't have the time to spare to figure it out. I do think that 
+the way it is formatted currently also looks nice, and when a video is put in fullScreen mode on YouTube the volume slider is 
+visible anyways, so it's fine. Also since I'm going for a very minimalistic, simplistic look for the bar, That there isn't any 
+'fancy', 'complicated' transitions is for the best, I think. */
+
+/* You know what? I'm not sure why each time you refresh the page the volume slider starts off two-toned, but once you click it 
+it appears the way it should appear. */
+
+input[type = 'range']{
+  appearance: none !important;
+  background: #efefef;
+  border-top: #efefef 15px solid;
+  border-bottom: #efefef 15px solid;
+  border-right: #efefef 5px solid;
+  height: 32px;
+  cursor: pointer;
+}
+/* I have included borders to the the top, bottom and right of the slider so as the keep it in the size and position I wanted.
+I have also chosen to make their (and the background's) colours '#efefef' because it is the closest shade to the background 
+colours of the play/pause and mute/unmute buttons that I could find going by sight alone. Again, I wanted to keep colour consistent 
+across the board to avoid any actual heirarchy on screen other than the video and the bar below. */
+
+/* I have included a pointer cursor so that like the other buttons, the user can see that they can interact with the volume slider. */
+
+input[type = 'range']::-webkit-slider-thumb{
+  appearance: none !important;
+  background: #000000;
+  height: 13px;
+  width: 13px;
+  border-radius: 100%;
+  cursor: pointer;
+}
+/* The slider-thumb colour was changed to match the buttons, and the cursor pointer was created so that users can see that they can 
+interact with it, like the buttons. */
+
+/* Also, I just wanted the slider-thumb and not the -webkit- but that's apparently not possible?! Or at least, when I tried it didn't 
+work so it's there. */
+
+.video-progress-bar{
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: 2rem;
+  flex-grow: 1;
+  cursor: pointer;
+  background-color: var(--col-01);
+  box-shadow: 0 1px 2px var(--col-02) inset;
+}
+/* I wanted to make the bar see through, but then I found out that the buttons and progress bar are not overlayed on top of the video, 
+but placed below it, so that idea went out the window. */
+
+/* I also kind of wanted to make the progress bar a slider as well, but after trying it out, I have decided that it looked bad and I didn't 
+like it. */
+
+::-moz-progress-bar {
+  background-color: var(--col-02);
+}
+
+::-webkit-progress-bar {
+  background-color: var(--col-06);
+  box-shadow: 0 1px 2px var(--col-06) inset;
+}
+/* I have changed the colours for these to '--col-06' because this way it matches with the volume slider, 
+especially in combination with the progress-value below (who's colour I have changed to '--col-03'). This 
+way, both the volume slider and progress bar should have black taking over the length of the bar/slider from 
+left to right, showing users that there is progress/a change being made, and the backgrounds for both remain 
+the same shade of grey to keep the palette colour choices consistent. */
+
+/* I also did not like the box-shadow effect and how it made the progress bar look like it's sunken in the screen. */
+
+/* These are actually the only changes I want to make for the progress bar, as I think any other changes to it's 
+appearance wouldn't work well with the other stylistic choices I have made for this assignment.*/ 
+
+::-webkit-progress-value {
+  background-color: #000000;
+}
+/* I had actually debated changing this colour to a shade of fuschia so that it matches the actual video, but the video 
+changes the shades of the hues that appears too often that I'd rather for it to just be black. */
+
+/* I wanted to create a slider thumb like the one used for the volume slider, only in a vertical bar form, but I couldn't 
+figure out how to do this. That's frustrating. Very much so... */
+
+div#TimeBox{
+	display:inline-flex;
+	width: 80px;
+  padding-top: 6px;
+	background: var(--col-06);
+	text-align: center;
+  font-size: 15px;
+	color: #efefef; 
+}
+/* I want this div to be counted as part of the changes I have made for the progress bar. Since I couldn't implement the 
+numbers into the actual progress bar, I'm at least going to give the illusion that the numbers are in there. Thus, I have 
+made the background colour the same shade of grey, and the text the same colour as the background for the buttons. Of course, 
+the numbers on the left will not change; as mentioned before, I couldn't make it work. However, I wanted to at least give the 
+illusion of how it should look, if I were able to. */
+
+.timeline-loading{
+  background-image: -moz-repeating-linear-gradient(45deg, var(--col-03) 0% 2%, transparent 2% 4%, red 4%);
+  background-size: 200% 100%;
+  animation: loadingAnimation 4s linear infinite;
+}
+/* This, for some reason, does not show up on my computer, though that could just be a me thing, so I wont change 
+anything on it, especially since I can't see any changes I make. */
+
+/* Like, I can't see the loading animation at all. */
+
+@keyframes loadingAnimation {
+  100%{
+    background-position: 50% 0%;
+  }
+}
+/* This doesn't show up either. Weird. */
