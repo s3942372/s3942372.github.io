@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="./filter.js" defer></script>
+    <script src="./arrays-&-for-loops.js" defer></script>
+    <script src="popup.js" defer></script>
+
+    <title>exercise 2</title>
+
+  </head>
+
+  <body>
+
+    <div>
+      <h1>
+        CYBERWARE
+      </h1>
+    </div>
+
+    <hr /> 
+
+    <div class="FilterSection">
+
+      <details class="FilterBox">
+        <summary>BEST DEALS</summary>
+        <button class="FilterButton" onclick='filterCategory("BEST", this)'>BEST DEALS</button>
+      </details>
+      
+      <details class="FilterBox">
+        <summary>ALL ITEMS</summary>
+        <button class="FilterButton" onclick='filterCategory("ProductBox", this)'>ALL ITEMS</button>
+      </details>
+
+      <details class="FilterBox">
+        <summary>HEAD</summary>
+        <button class="FilterButton" onclick='filterCategory("EYE", this)'>OPTICS</button>
+        <button class="FilterButton" onclick='filterCategory("NOSE", this)'>OLFACTICS</button>
+        <button class="FilterButton" onclick='filterCategory("PROB", this)'>PROBOSCIS</button>
+        <button class="FilterButton" onclick='filterCategory("EAR", this)'>AURICALS</button>
+        <button class="FilterButton" onclick='filterCategory("MOUTH", this)'>ORALS</button>
+        <button class="FilterButton" onclick='filterCategory("HEAD", this)'>HEAD</button>
+        <button class="FilterButton" onclick='filterCategory("ALLH", this)'>ALL ITEMS</button>
+      </details>
+
+      <details class="FilterBox">
+        <summary>ARM</summary>
+        <button class="FilterButton" onclick='filterCategory("UARM", this)'>UPPER ARMS</button>
+        <button class="FilterButton" onclick='filterCategory("FARM", this)'>FOREARMS</button>
+        <button class="FilterButton" onclick='filterCategory("ARM", this)'>ARM</button>
+        <button class="FilterButton" onclick='filterCategory("WRIST", this)'>WRISTS</button>
+        <button class="FilterButton" onclick='filterCategory("HAND", this)'>HANDS</button>
+        <button class="FilterButton" onclick='filterCategory("FINGER", this)'>FINGERS</button>
+        <button class="FilterButton" onclick='filterCategory("ALLA", this)'>ALL ITEMS</button>
+      </details>
+      
+      <details class="FilterBox">
+        <summary>TORSO</summary>
+        <button class="FilterButton" onclick='filterCategory("BACK", this)'>BACKS</button>
+        <button class="FilterButton" onclick='filterCategory("WING", this)'>WINGS</button>
+        <button class="FilterButton" onclick='filterCategory("TAIL", this)'>TAILS</button>
+        <button class="FilterButton" onclick='filterCategory("EXTRA", this)'>EXTRANEOUS</button>
+        <button class="FilterButton" onclick='filterCategory("TORSO", this)'>TORSO</button>
+        <button class="FilterButton" onclick='filterCategory("ALLT", this)'>ALL ITEMS</button>
+      </details>
+
+      <details class="FilterBox">
+        <summary>LEG</summary>
+        <button class="FilterButton" onclick='filterCategory("GLUTE", this)'>GLUTEOUS</button>
+        <button class="FilterButton" onclick='filterCategory("THIGH", this)'>THIGHS</button>
+        <button class="FilterButton" onclick='filterCategory("SHIN", this)'>SHINS</button>
+        <button class="FilterButton" onclick='filterCategory("LEG", this)'>LEG</button>
+        <button class="FilterButton" onclick='filterCategory("ANKLE", this)'>ANKLES</button>
+        <button class="FilterButton" onclick='filterCategory("FEET", this)'>FEET</button>
+        <button class="FilterButton" onclick='filterCategory("TOE", this)'>TOES</button>
+        <button class="FilterButton" onclick='filterCategory("ALLL", this)'>ALL ITEMS</button>
+      </details>
+
+      <details class="FilterBox">
+        <summary>ORGANS</summary>
+        <button class="FilterButton" onclick='filterCategory("BRAIN", this)'>BRAINS</button>
+        <button class="FilterButton" onclick='filterCategory("LUNG", this)'>LUNGS</button>
+        <button class="FilterButton" onclick='filterCategory("HEART", this)'>HEARTS</button>
+        <button class="FilterButton" onclick='filterCategory("LIVER", this)'>LIVERS</button>
+        <button class="FilterButton" onclick='filterCategory("STOMACH", this)'>STOMACHS</button>
+        <button class="FilterButton" onclick='filterCategory("KIDNEY", this)'>KIDNEYS</button>
+        <button class="FilterButton" onclick='filterCategory("INTESTINE", this)'>INTESTINES</button>
+        <button class="FilterButton" onclick='filterCategory("BLADDER", this)'>BLADDERS</button>
+        <button class="FilterButton" onclick='filterCategory("BOWEL", this)'>BOWELS</button>
+        <button class="FilterButton" onclick='filterCategory("ALLO", this)'>ALL ITEMS</button>
+      </details>
+
+      <details class="FilterBox">
+        <summary>SKELETAL</summary>
+        <button class="FilterButton" onclick='filterCategory("SKULL", this)'>SKULLS</button>
+        <button class="FilterButton" onclick='filterCategory("SPINE", this)'>SPINALS</button>
+        <button class="FilterButton" onclick='filterCategory("RIB", this)'>RIBCAGES</button>
+        <button class="FilterButton" onclick='filterCategory("GEN", this)'>GENERAL</button>
+        <button class="FilterButton" onclick='filterCategory("ALLS", this)'>ALL ITEMS</button>
+      </details>
+
+      <details class="FilterBox">
+        <summary>CELLULAR</summary>
+        <button class="FilterButton" onclick='filterCategory("SYNAPSE", this)'>SYNAPSES</button>
+        <button class="FilterButton" onclick='filterCategory("NERVOUS", this)'>NERVOUS</button>
+        <button class="FilterButton" onclick='filterCategory("TRANS", this)'>TRANSMITTER</button>
+        <button class="FilterButton" onclick='filterCategory("GEN", this)'>GENERAL</button>
+        <button class="FilterButton" onclick='filterCategory("ALLC", this)'>ALL ITEMS</button>
+      </details>
+
+      <details class="FilterBox">
+        <summary>MISCELLANEOUS</summary>
+        <button class="FilterButton" onclick='filterCategory("MISC", this)'>MISCELLANEOUS</button>
+      </details>
+
+    </div>
+
+    <hr /> 
+
+    <div class="flex-container">
+
+      <!-- Product 38 -->
+      <div class="flex-child ProductBox ALLL SHIN LEG">
+
+        <h3>
+          $84628.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg37" src="./images/Hippolyta-speeder.png" alt="Hippolyta Speeder 5000"/>
+
+          <h2 class="ProductName">
+            Hippolyta's Speeder 5000
+          </h2>
+
+        </div>
+
+      </div>
+    
+      <!-- Product 42 -->
+      <div class="flex-child ProductBox ALLL LEG">
+
+        <h3>
+          $94789
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg41" src="./images/Pheidippides-4000.png" alt="Pheidippides 4000"/>
+
+          <h2 class="ProductName">
+            Pheidippides 4000
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 3 -->
+      <div class="flex-child BEST ProductBox ALLH BRAIN">
+
+        <h3>
+          $299.99
+        </h3>
+      
+        <div class="ProductImageContainer">
+
+          <img class="ProductImg2" src="./images/Brain-pro-max.png" alt="Brain Pro Max"/>
+
+          <h2 class="ProductName">
+            Brain X Pro Max
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+    
+    <div class="flex-container">
+
+      <!-- Product 16 -->
+      <div class="flex-child ProductBox ALLH EYE">
+
+        <h3>
+          $34478.49
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg15" src="./images/Cybertron-lense.png" alt="Cybertron Lense"/>
+
+          <h2 class="ProductName">
+            Cybertron Lense
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 5 -->
+      <div class="flex-child BEST ProductBox ALLH HEAD">
+
+        <h3>
+          $199.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg4" src="./images/New-face.png" alt="New Face"/>
+
+          <h2 class="ProductName">
+            New Face
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 29 -->
+      <div class="flex-child ProductBox ALLH EYE">
+
+        <h3>
+          $234384.93
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg28" src="./images/Orion-gaze.png" alt="Orion Gaze"/>
+
+          <h2 class="ProductName">
+            Orion's Gaze
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 7 -->
+      <div class="flex-child BEST ProductBox ALLA FARM ARM">
+
+        <h3>
+          $642.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg6" src="./images/Armatron.png" alt="Armatron"/>
+
+          <h2 class="ProductName">
+            Armatron
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 49 -->
+      <div class="flex-child ProductBox ALLS SKULL">
+
+        <h3>
+          $193455.50
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg48" src="./images/Steel-cranium.png" alt="Steel Cranium"/>
+
+          <h2 class="ProductName">
+            Steel Cranium
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 9 -->
+      <div class="flex-child BEST ProductBox ALLA FINGER MISC">
+
+        <h3>
+          $99.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg8" src="./images/Phasma-nails.png" alt="Phasma Nails"/>
+
+          <h2 class="ProductName">
+            Phasma Nails
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 31 -->
+      <div class="flex-child ProductBox MISC">
+
+        <h3>
+          $37654.24
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg30" src="./images/Massage-a-tron.png" alt="Massage-a-Tron"/>
+
+          <h2 class="ProductName">
+            Massage-a-Tron
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 35 -->
+      <div class="flex-child ProductBox ALLH EAR">
+
+        <h3>
+          $46757.97
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg34" src="./images/Euterpe-ear.png" alt="Euterpe Aid"/>
+
+          <h2 class="ProductName">
+            Euterpe's Aid
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 12 -->
+      <div class="flex-child BEST ProductBox ALLA HAND">
+
+        <h3>
+          $184.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg11" src="./images/Octi-grip.png" alt="Octi-Grip"/>
+
+          <h2 class="ProductName">
+            Octi-Grip
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 13 -->
+      <div class="flex-child ProductBox ALLO ALLH ALLC BRAIN HEAD SYNAPSE">
+
+        <h3>
+          $214976.97
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg12" src="./images/Brain-web.png" alt="Brain Web"/>
+
+          <h2 class="ProductName">
+            Brain Web Ver. 1.2
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 14 -->
+      <div class="flex-child ProductBox ALLO LUNG">
+
+        <h3>
+          $109865.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg13" src="./images/Lungine.png" alt="Lungine"/>
+
+          <h2 class="ProductName">
+            Lungine
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 15 -->
+      <div class="flex-child ProductBox ALLO STOMACH">
+
+        <h3>
+          $98756.89
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg14" src="./images/Organic-decompositor.png" alt="Organic Decompositor"/>
+
+          <h2 class="ProductName">
+            Organic Decompositor 6.3
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 4 -->
+      <div class="flex-child BEST ProductBox ALLH EYE">
+
+        <h3>
+          $273.96
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg3" src="./images/Colour-change-pupil.png" alt="Pupil 10 Pro"/>
+
+          <h2 class="ProductName">
+            Pupil X 10 Pro
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 17 -->
+      <div class="flex-child ProductBox ALLO HEART">
+
+        <h3>
+          $157972.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg16" src="./images/Plastoid-beatr.png" alt="Plastoid Beatr"/>
+
+          <h2 class="ProductName">
+            Plastoid Beatr
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 18 -->
+      <div class="flex-child ProductBox ALLA HAND FINGER">
+
+        <h3>
+          $15121.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg17" src="./images/Oppo-thum.png" alt="Oppo-Thum"/>
+
+          <h2 class="ProductName">
+            Oppo-Thum
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 19 -->
+      <div class="flex-child ProductBox ALLA HAND FINGER">
+
+        <h3>
+          $38148.50
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg18" src="./images/Oppo-thum-2.0.png" alt="Oppo-Thum-2"/>
+
+          <h2 class="ProductName">
+            Oppo-Thum Ver. 2.0
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 20 -->
+      <div class="flex-child ProductBox ALLS ALLC GEN TRANS">
+
+        <h3>
+          $254073.49
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg19" src="./images/Neuro-system-optimiser.png" alt="Neuro System Optimiser"/>
+
+          <h2 class="ProductName">
+            Neuro System Optimiser
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 21 -->
+      <div class="flex-child ProductBox ALLO BRAIN">
+
+        <h3>
+          $93757.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg20" src="./images/Memory-booster.png" alt="Memory Booster"/>
+
+          <h2 class="ProductName">
+            Memory Booster 4000
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 22 -->
+      <div class="flex-child ProductBox ALLO BRAIN">
+
+        <h3>
+          $198667.86
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg21" src="./images/Cortex-ram-manager.png" alt="Cortex Ram Manager"/>
+
+          <h2 class="ProductName">
+            Cortex Ram Manager
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 23 -->
+      <div class="flex-child ProductBox ALLH EYE">
+
+        <h3>
+          $109328.49
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg22" src="./images/Occular-cortex-support.png" alt="Occular CoreTech Support"/>
+
+          <h2 class="ProductName">
+            Occular CoreTech Support
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 24 -->
+      <div class="flex-child ProductBox ALLH HEAD">
+
+        <h3>
+          $293843.49
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg23" src="./images/Cortana-face.png" alt="Cortana's Head"/>
+
+          <h2 class="ProductName">
+            Cortana's Head
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 25 -->
+      <div class="flex-child ProductBox ALLH EYE">
+
+        <h3>
+          $68545
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg24" src="./images/Callisto-optic-band.png" alt="Callisto Optic Band"/>
+
+          <h2 class="ProductName">
+            Callisto Optic-Band
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 26 -->
+      <div class="flex-child ProductBox ALLO HEART">
+
+        <h3>
+          $316935
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg25" src="./images/Pumpers-core.png" alt="Pumpers Core"/>
+
+          <h2 class="ProductName">
+            Pumper's Core X
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 27 -->
+      <div class="flex-child ProductBox ALLA HAND">
+
+        <h3>
+          $468435.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg26" src="./images/Pygmalion-tools.png" alt="Pygmalion Tools"/>
+
+          <h2 class="ProductName">
+            Pygmalion's Tool
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 28 -->
+      <div class="flex-child ProductBox ALLC TRANS">
+
+        <h3>
+          $623275.13
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg27" src="./images/Nano-accelerator.png" alt="Nano Accelerator"/>
+
+          <h2 class="ProductName">
+            Nano Accelerator
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 6 -->
+      <div class="flex-child BEST ProductBox ALLH EYE">
+
+        <h3>
+          $278
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg5" src="./images/Cyber-eye.png" alt="Cyber Eye"/>
+
+          <h2 class="ProductName">
+            Cyber Eye
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 30 -->
+      <div class="flex-child ProductBox ALLH HEAD MISC">
+
+        <h3>
+          $846507.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg29" src="./images/Dafters-punk.png" alt="Dafters Punk"/>
+
+          <h2 class="ProductName">
+            Dafter's Punk
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 10 -->
+      <div class="flex-child BEST ProductBox ALLA UARM">
+
+        <h3>
+          $144.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg9" src="./images/Delta-delts.png" alt="Delta Delts"/>
+
+          <h2 class="ProductName">
+            Delta Delts
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 32 -->
+      <div class="flex-child ProductBox ALLO LIVER">
+
+        <h3>
+          $456764.24
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg31" src="./images/JiU-synthesiser.png" alt="JiU Synthesiser"/>
+
+          <h2 class="ProductName">
+            JiU Synthesiser
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 46 -->
+      <div class="flex-child BEST ProductBox ALLS ALLC SPINE NERVOUS">
+
+        <h3>
+          $99.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg45" src="./images/Spinal-sensors.png" alt="Spinal Sensors"/>
+
+          <h2 class="ProductName">
+            Spinal Sensors
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 34 -->
+      <div class="flex-child ProductBox ALLH EYE">
+
+        <h3>
+          $56746.35
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg33" src="./images/All-seeing-eye.png" alt="All-seeing-eye"/>
+
+          <h2 class="ProductName">
+            All-Seeing-Eye
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 11 -->
+      <div class="flex-child BEST ProductBox ALLH EAR">
+
+        <h3>
+          $549.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg10" src="./images/Blue-horizon-ears.png" alt="Blue Horizon Ears"/>
+
+          <h2 class="ProductName">
+            Blue Horizon Ears
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 36 -->
+      <div class="flex-child ProductBox ALLO KIDNEY">
+
+        <h3>
+          $367842.21
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg35" src="./images/Ki-tech-filter-plus.png" alt="KI-Tech Filter Plus"/>
+
+          <h2 class="ProductName">
+            KI-Tech Filter +
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 37 -->
+      <div class="flex-child ProductBox ALLH NOSE EAR">
+
+        <h3>
+          $9718.50
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg36" src="./images/Second-hand-nose-ear.png" alt="Second-hand Nose-Ear"/>
+
+          <h2 class="ProductName">
+            Second-hand Extremities
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 1 -->
+      <div class="flex-child BEST ProductBox ALLL FEET">
+
+        <h3>
+          $499.99
+        </h3>
+      
+        <div class="ProductImageContainer">
+
+          <img class="ProductImg" src="./images/Hermes-feet.png" alt="Hermes Feet"/>
+
+          <h2 class="ProductName">
+            Hermes Feet
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 39 -->
+      <div class="flex-child ProductBox ALLA HAND FINGER">
+
+        <h3>
+          $2485
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg38" src="./images/Kraken-claw.png" alt="Kraken Claw"/>
+
+          <h2 class="ProductName">
+            Kraken's Claw Kid Ver.
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 40 -->
+      <div class="flex-child ProductBox ALLA HAND">
+
+        <h3>
+          $7594.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg39" src="./images/Arachnid-boy-web-thrusters.png" alt="Arachnid-Boy Web-Thrusters"/>
+
+          <h2 class="ProductName">
+            Arachnid-Boy Web-Thrusters Ver. Flesh
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 41 -->
+      <div class="flex-child ProductBox ALLH FARM ARM HAND">
+
+        <h3>
+          $162372.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg40" src="./images/Pineapple-corp-flesh-tech-system.png" alt="Pineapple Corp Flesh-Tech System"/>
+
+          <h2 class="ProductName">
+            Pineapple Corp Flesh-Tech System
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 2 -->
+      <div class="flex-child BEST ProductBox ALLL FEET">
+
+        <h3>
+          $679.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg1" src="./images/Icarus-feet.png" alt="Icarus Feet"/>
+
+          <h2 class="ProductName">
+            Icarus Feet
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 43 -->
+      <div class="flex-child ProductBox ALLH ORAL">
+
+        <h3>
+          $6483.50
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg42" src="./images/Titanium-denticle.png" alt="Titanium Denticle"/>
+
+          <h2 class="ProductName">
+            Titanium Denticle
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 44 -->
+      <div class="flex-child ProductBox ALLO BRAIN ALLC TRANS SYNAPSE">
+
+        <h3>
+          $573893.99
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg43" src="./images/Mechatronic-core.png" alt="Mechatronic Core"/>
+
+          <h2 class="ProductName">
+            Mechatronic Core
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 33 -->
+      <div class="flex-child ProductBox ALLH EYE">
+
+        <h3>
+          $456927.50
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg32" src="./images/Hou-yi-ops.png" alt="Hou Yi Ops"/>
+
+          <h2 class="ProductName">
+            Hou Yi Ops 100
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 47 -->
+      <div class="flex-child BEST ProductBox ALLH ALLC BRAIN TRANS">
+  
+        <h3>
+          $1483.50
+        </h3>
+  
+        <div class="RecipeImageContainer">
+  
+          <img class="ProductImg46" src="./images/Micro-cloud-brain.png" alt="Micro Cloud Brain"/>
+  
+          <h2 class="ProductName">
+            Micro Cloud Brain
+          </h2>
+  
+        </div>
+  
+      </div>
+  
+      <!-- Product 48 -->
+      <div class="flex-child ProductBox ALLL GLUTE">
+  
+        <h3>
+          $13893.99
+        </h3>
+  
+        <div class="RecipeImageContainer">
+  
+          <img class="ProductImg47" src="./images/Bionic-butt.png" alt="Bionic Butt"/>
+  
+          <h2 class="ProductName">
+            Bionic Butt
+          </h2>
+  
+        </div>
+  
+      </div>
+
+      <!-- Product 8 -->
+      <div class="flex-child BEST ProductBox ALLA HAND">
+
+        <h3>
+          $195.50
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg7" src="./images/Lotus-hand.png" alt="Lotus Hand"/>
+
+          <h2 class="ProductName">
+            Lotus Hand 4.6
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="flex-container">
+
+      <!-- Product 50 -->
+      <div class="flex-child ProductBox ALLC TRANS">
+
+        <h3>
+          $43728.15
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg49" src="./images/Bionic-arm.png" alt="Bionic Arm"/>
+
+          <h2 class="ProductName">
+            Bionic Arm Advanced Model
+          </h2>
+
+        </div>
+
+      </div>
+
+      <!-- Product 51 -->
+      <div class="flex-child BEST ProductBox ALLO LUNG">
+
+        <h3>
+          $1000
+        </h3>
+
+        <div class="RecipeImageContainer">
+
+          <img class="ProductImg50" src="./images/Aqualung.png" alt="Aqualung"/>
+
+          <h2 class="ProductName">
+            Aqualung
+          </h2>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    </section>
+
+    <div class="popup">
+      <div class="contentbox">
+          <div class="imgBx">
+              <img src="popups/Untitled-3-01.png">
+          </div>
+          <div class="close"></div>
+      </div>
+  </div>
+
+  <!--popup 2-->
+
+  <div class="popup1">
+      <div class="contentbox1">
+          <div class="imgBx1">
+              <img src="popups/BIONIC ARM.png">
+          </div>
+          <div class="close1"></div>
+      </div>
+  </div>
+
+  <!--popup 3 -->
+
+  <div class="popup2">
+      <div class="contentbox2">
+          <div class="imgBx2">
+              <img src="popups/Untitled-3-05.png">
+          </div>
+          <div class="close2"></div>
+      </div>
+  </div>
+
+
+  <!--popup 4 -->
+
+  <div class="popup3">
+      <div class="contentbox3">
+          <div class="imgBx3">
+              <img src="popups/BlueEar.png">
+          </div>
+          <div class="close3"></div>
+      </div>
+  </div>
+
+   <!--popup 5 -->
+
+   <div class="popup4">
+      <div class="contentbox4">
+          <div class="imgBx4">
+              <img src="popups/DeltaDelts.png">
+          </div>
+          <div class="close4"></div>
+      </div>
+  </div>
+
+   <!--popup 6 -->
+
+   <div class="popup5">
+      <div class="contentbox5">
+          <div class="imgBx5">
+              <img src="popups/STEEL CRANIUM.png">
+          </div>
+          <div class="close5"></div>
+      </div>
+  </div>
+
+  <!--popup 7 -->
+
+  <div class="popup6">
+      <div class="contentbox6">
+          <div class="imgBx6">
+              <img src="popups/Phasma Nails.png">
+          </div>
+          <div class="close6"></div>
+      </div>
+  </div>
+
+<!--popup 8 -->
+
+<div class="popup7">
+<div class="contentbox7">
+  <div class="imgBx7">
+      <img src="popups/Robot hand.png">
+  </div>
+  <div class="close7"></div>
+</div>
+</div>
+
+<!--popup 9-->
+
+<div class="popup8">
+<div class="contentbox8">
+  <div class="imgBx8">
+      <img src="popups/Untitled-3-02.png">
+  </div>
+  <div class="close8"></div>
+</div>
+</div>
+
+<!--popup 10 -->
+
+<div class="popup9">
+<div class="contentbox9">
+  <div class="imgBx9">
+      <img src="popups/BlueEar.png">
+  </div>
+  <div class="close9"></div>
+</div>
+</div>
+
+<!--popup 11 -->
+
+<div class="popup10">
+<div class="contentbox10">
+  <div class="imgBx10">
+      <img src="popups/SPINAL SENSORS.png">
+  </div>
+  <div class="close10"></div>
+</div>
+</div>
+
+<!--popup 12 -->
+
+<div class="popup11">
+<div class="contentbox11">
+  <div class="imgBx11">
+      <img src="popups/Untitled-3-01.png">
+  </div>
+  <div class="close11"></div>
+</div>
+</div>
+
+<!--popup 13 -->
+
+<div class="popup12">
+<div class="contentbox12">
+  <div class="imgBx12">
+      <img src="popups/AQUALUNG.png">
+  </div>
+  <div class="close12"></div>
+</div>
+</div>
+
+<!--popup 14 -->
+
+<div class="popup13">
+<div class="contentbox13">
+  <div class="imgBx13">
+      <img src="popups/CLOUDBRAIN.png">
+  </div>
+  <div class="close13"></div>
+</div>
+</div>
+
+<!--popup 15 -->
+
+<div class="popup14">
+<div class="contentbox14">
+  <div class="imgBx14">
+      <img src="popups/Untitled-3-02.png">
+  </div>
+  <div class="close14"></div>
+</div>
+</div>
+
+<!--popup 16 -->
+
+<div class="popup15">
+<div class="contentbox15">
+  <div class="imgBx15">
+      <img src="popups/BIONIC BUTT.png">
+  </div>
+  <div class="close15"></div>
+</div>
+</div>
+
+<!--popup 17 -->
+
+<div class="popup16">
+<div class="contentbox16">
+  <div class="imgBx16">
+      <img src="popups/OctiGrip.png">
+  </div>
+  <div class="close16"></div>
+</div>
+</div> 
+
+  </body>
+
+</html>
