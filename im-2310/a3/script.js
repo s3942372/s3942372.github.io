@@ -169,144 +169,165 @@ function getConversation(name) {
                                 ]
                             },
                                 unavailable: {
-                                    conversation: `UnfortunateLy, due to budget cuts this optIon is cuRRently unaVAIlable. fEel free to dONate to oUr GoFundMe in orDEr for ThiS optiON to be iMplemeNtEd. pleaSe chOOse AnotHEr oPTIOn.`,
+                                    conversation: `Unfortunately, due to budget cuts this option is currently unavailable. Feel free to donate to our GoFundMe in order for this option to be implemented. Please choose another option.`,
                                     choices: [
                                         {
-                                            choice: "FiNANcE",
-                                            destination: 'unavailable2'
+                                            choice: "FINANCE",
+                                            destination: 'unavailable1'
                                         },
                                         {
-                                            choice: "ReLAtiONShIp",
-                                            destination: 'unavailable2'
+                                            choice: "RELATIONSHIP",
+                                            destination: 'unavailable1'
                                         },
                                         {
-                                            choice: "wOrK",
-                                            destination: 'unavailable2'
+                                            choice: "WORK",
+                                            destination: 'unavailable1'
                                         },
                                         {
-                                            choice: "HEaltH",
-                                            destination: 'unavailable2'
+                                            choice: "HEALTH",
+                                            destination: 'unavailable1'
                                         }
                                     ]
                                 },
-                                    unavailable2: {
-                                        conversation: `UNf0rTun4t31Y, dU3 t0 BudG3t cUT5 TH!s 0pT!0n !5 CUrR3nt1Y Un4v4!laBl3. F3eL fRe3 t0 d0naT3 To oUR G0FUnDM3 iN oRDeR f0R tH!s 0pt!0n T0 b3 iMPLem3nt3D. Pl34se Ch00se aN0tH3r 0pT!oN.`,
+                                    unavailable1: {
+                                        conversation: `UnfortunateLy, due to budget cuts this optIon is cuRRently unaVAIlable. fEel free to dONate to oUr GoFundMe in orDEr for ThiS optiON to be iMplemeNtEd. pleaSe chOOse AnotHEr oPTIOn.`,
                                         choices: [
                                             {
-                                                choice: "f!N4nC3",
-                                                destination: 'unavailable3'
+                                                choice: "FiNANcE",
+                                                destination: 'unavailable2'
                                             },
                                             {
-                                                choice: "R3L4t!0n5h!P",
-                                                destination: 'unavailable3'
+                                                choice: "ReLAtiONShIp",
+                                                destination: 'unavailable2'
                                             },
                                             {
-                                                choice: "w0rK",
-                                                destination: 'unavailable3'
+                                                choice: "wOrK",
+                                                destination: 'unavailable2'
                                             },
                                             {
-                                                choice: "H34LtH",
-                                                destination: 'unavailable3'
+                                                choice: "HEaltH",
+                                                destination: 'unavailable2'
                                             }
                                         ]
                                     },
-                                        unavailable3: {
-                                            conversation: `Unfortunately, due to budget cuts this option is currently unavailable. Feel free to donate to our GoFundMe in order for this option to be implemented. Please choose another option.`,
+                                        unavailable2: {
+                                            conversation: `UNf0rTun4t31Y, dU3 t0 BudG3t cUT5 TH!s 0pT!0n !5 CUrR3nt1Y Un4v4!laBl3. F3eL fRe3 t0 d0naT3 To oUR G0FUnDM3 iN oRDeR f0R tH!s 0pt!0n T0 b3 iMPLem3nt3D. Pl34se Ch00se aN0tH3r 0pT!oN.`,
                                             choices: [
                                                 {
-                                                    choice: "FINANCE",
-                                                    destination: 'unavailable4'
+                                                    choice: "f!N4nC3",
+                                                    destination: 'unavailable3'
                                                 },
                                                 {
-                                                    choice: "RELATIONSHIP",
-                                                    destination: 'unavailable4'
+                                                    choice: "R3L4t!0n5h!P",
+                                                    destination: 'unavailable3'
                                                 },
                                                 {
-                                                    choice: "WORK",
-                                                    destination: 'unavailable4'
+                                                    choice: "w0rK",
+                                                    destination: 'unavailable3'
                                                 },
                                                 {
-                                                    choice: "HEALTH",
-                                                    destination: 'unavailable4'
-                                                },
-                                                {
-                                                    choice: "D̵E̷A̶T̷H̷",
-                                                    destination: 'death'
+                                                    choice: "H34LtH",
+                                                    destination: 'unavailable3'
                                                 }
                                             ]
                                         },
-                                            unavailable4: {
-                                                conversation: `BUDDY3.EXE HAS STOPPED WORKING. PLEASE RESTART THE PROGRAM`,
+                                            unavailable3: {
+                                                conversation: `Unfortunately, due to budget cuts this option is currently unavailable. Feel free to donate to our GoFundMe in order for this option to be implemented. Please choose another option.`,
+                                                choices: [
+                                                    {
+                                                        choice: "FINANCE",
+                                                        destination: 'unavailable4'
+                                                    },
+                                                    {
+                                                        choice: "RELATIONSHIP",
+                                                        destination: 'unavailable4'
+                                                    },
+                                                    {
+                                                        choice: "WORK",
+                                                        destination: 'unavailable4'
+                                                    },
+                                                    {
+                                                        choice: "HEALTH",
+                                                        destination: 'unavailable4'
+                                                    },
+                                                    {
+                                                        choice: "D̵E̷A̶T̷H̷",
+                                                        destination: 'death'
+                                                    }
+                                                ]
                                             },
-                                            death: {
-                                                conversation: `.........................................................`,
-                                                defaultDestination: 'death2',
-                                                buttonText: "WHERE DO WE GO?"
-                                            },
-                                                death2: {
-                                                    conversation: `Do You Want To Knowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww?`,
-                                                    choices: [
-                                                        {
-                                                            choice: "YES",
-                                                            destination: 'death3'
-                                                        },
-                                                        {
-                                                            choice: "NO",
-                                                            destination: 'death3'
-                                                        }
-                                                    ]
+                                                unavailable4: {
+                                                    conversation: `BUDDY3.EXE HAS STOPPED WORKING. PLEASE RESTART THE PROGRAM`,
                                                 },
-                                                    death3: {
-                                                        conversation: `D0 Y0u w4nT t0 Kn0wwwwwwwwwWwwwwwwwwwwwwwwwwwWWWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWWWWWWWwwwwwwwwwwwwwwwwwwwwWwwwwwwwwwWwwwwwwwwwwwwwwwwwwwW?`,
+                                                death: {
+                                                    conversation: `.........................................................`,
+                                                    defaultDestination: 'death2',
+                                                    buttonText: "WHERE DO WE GO?"
+                                                },
+                                                    death2: {
+                                                        conversation: `Do You Want To Knowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww?`,
                                                         choices: [
                                                             {
-                                                                choice: "Y3S",
-                                                                destination: 'death4'
+                                                                choice: "YES",
+                                                                destination: 'death3'
                                                             },
                                                             {
-                                                                choice: "N0",
-                                                                destination: 'death4'
+                                                                choice: "NO",
+                                                                destination: 'death3'
                                                             }
                                                         ]
                                                     },
-                                                        death4: {
-                                                            conversation: `D̵͕͋0̵̰͉̃ ̶̳̬̑Y̴̤̆͌0̶͚̮̈́u̴̱͌ͅ ̸͆͜w̸̥̟͗4̵̙͚͋ņ̶́͐T̸̳̅̓ ̷̛̻͇t̶̺̱̀0̷̛͜ ̸̧͇̈́̅K̵̢̉n̴͍̬͆͠0̴̠͕̑͑w̸̘̾͌w̷̡̪̉͒w̸̤͒͂w̵͚̪̔w̵̫̮̽̓w̸̗̲̌͑w̵̪̓̑ẃ̴̭͌w̶̙͑̃ͅẄ̴̺ẅ̸̫̙́ẁ̷̜̺̂w̸̱̎ẇ̴̝ẘ̸̨͠w̷̗̓w̸̻̑w̵̥͑ẁ̷̘̦w̴̡̖̽ẉ̵̆͜w̵̜͆ẉ̴̌w̶̦̎̍͜w̵̟͎͂w̶̜͕̾͘ŵ̵͖͘W̶̻̌W̴̫̿͑W̷̨̘͂̅Ẃ̷̢̓Ŵ̷͖̙Ẅ̷̻W̷̼̍w̵̩͓̑w̴̥̮̏w̶̜̑̚ẘ̵͙͗w̵̗̐̉ẅ̸͖͙w̷͈̔w̵̙̿͆w̸͖͒w̶̦̑̑ẃ̸͍̈́w̴̦̖̎͗w̷͓̋w̸͔̼̍ẁ̴͉̖w̴̲͛w̷̳̱̍̏w̶̻̆w̵̙̫̏w̷̟̏̓ẁ̶̧̺̏w̶̬̓̿ẃ̴̧͉̄w̸̢͗w̷̮͊͆w̷̪̏̐w̶̡̩͋̎w̴̲͈̋w̷̛͈̋w̵̭͔̉w̴̼͒w̷̝͚̃̈w̴̹̰̔̽w̶̻̘̐ẁ̵̧ẅ̴̗̙́͠ẅ̵̩̯́ẇ̸͖̹ŵ̶̳ẉ̸̀w̸̡̹͌w̴̭̦̄̕ẅ̴͓͝w̷͇̥͗W̴̖͛ẉ̴͑̑w̷͍̔̄w̶͇͎͋͆ẉ̶̦͛w̷̻̓ẃ̶̢͉̿w̴̑̍͜w̴͉͗ẅ̴̥́͜w̴̦̺͛͠w̷̡͖͂ẅ̵̧́̽w̸̘͕̍̍w̴̲̔̐w̶̗͕͋̀w̷̖̓̓w̵̡̮̿͑ẁ̵̺̪w̸͎͈͑w̴̺͕̽̆w̶̨͇͗̿w̸̼͑ẃ̴̉ͅw̶̟̐̽w̵̥̑͑W̸̢̰͋W̵̢͕̑W̷̜̞͂W̶̧̼͊̂W̸̟͆͛W̴̧̖͂̓Ẁ̵̝͉͆W̵̜͕͊͐Ẅ̷̢̬͝Ẅ̴̱̥́W̵̢͊̊w̸̜̓ŵ̷͍̲̚w̸̗͂͝w̵̧̱̌̈w̵̦̱͊w̶̪̬͒͐w̸̝̠͠w̵͇̯̉w̶̡͙̆̓ẉ̵̧̛́w̷͚̿̍ẇ̶̝ẃ̸̙w̸̘͖͛w̵̳͙̉w̵̡̲̃w̷̬̎͛ẉ̶̍̂ẁ̷̡͖̀w̷͔̃Ẃ̷̰̳͊w̴̠̝͑̂w̸̗̆́w̷͙̓w̷̱̃͐w̶̢̙̓̍w̴̻̠͝w̴̨̺͗̚w̴̥̦̏w̶̨͠Ẉ̴̕w̴̗͇̽w̴̧̪̓͘w̵̛̥̿w̴̪͋̋w̷̞͊w̷̻͝w̷͕͒͝w̶͕͛̐w̴̢͍̄w̴̙͊̏w̶̦̏́w̶̝̪͊ẅ̵͔́̈w̸̥̎̚w̴͖̻̃͆w̵̜͓̋͝w̶͇̱͒w̸͚̠͑w̸̛̭̙W̸̬͚͌?̴͑̈́ͅ`,
+                                                        death3: {
+                                                            conversation: `D0 Y0u w4nT t0 Kn0wwwwwwwwwWwwwwwwwwwwwwwwwwwWWWWWWWwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwWwwwwwwwwwwwwwwwwwwwwwwwwwWWWWWWWWWWWwwwwwwwwwwwwwwwwwwwwWwwwwwwwwwWwwwwwwwwwwwwwwwwwwwW?`,
                                                             choices: [
                                                                 {
-                                                                    choice: "Y̵̰̺̎̈3̷͍͋̾S̵̘̘͛̂",
-                                                                    destination: 'death5'
+                                                                    choice: "Y3S",
+                                                                    destination: 'death4'
                                                                 },
                                                                 {
-                                                                    choice: "Ǹ̷͎̘́0̵̜̄̔",
-                                                                    destination: 'death5'
+                                                                    choice: "N0",
+                                                                    destination: 'death4'
                                                                 }
                                                             ]
                                                         },
-                                                            death5: {
-                                                                conversation: `01000001 01101110 01100100 00100000 01110100 01101000 01100101 00100000 01100100 01110101 01110011 01110100 00100000 01110010 01100101 01110100 01110101 01110010 01101110 01110011 00100000 01110100 01101111 00100000 01110100 01101000 01100101 00100000 01100101 01100001 01110010 01110100 01101000 00100000 01100001 01110011 00100000 01101001 01110100 00100000 01110111 01100001 01110011 00101100 00100000 01100001 01101110 01100100 00100000 01110100 01101000 01100101 00100000 01110011 01110000 01101001 01110010 01101001 01110100 00100000 01110010 01100101 01110100 01110101 01110010 01101110 01110011 00100000 01110100 01101111 00100000 01000111 01101111 01100100 00100000 01110111 01101000 01101111 00100000 01100111 01100001 01110110 01100101 00100000 01101001 01110100 00101110`,
-                                                                defaultDestination: 'death6',
-                                                                buttonText: "CAN YOU DIE?"
-                                                            },
-                                                                death6: {
-                                                                    conversation: `.......................................................................................`,
-                                                                    defaultDestination: 'death7',
-                                                                    buttonText: "..."
-                                                                },
-                                                                    death7: {
-                                                                        conversation: `.............................................................................................................................................................................`,
-                                                                        defaultDestination: 'death8',
-                                                                        buttonText: "......"
+                                                            death4: {
+                                                                conversation: `D̵͕͋0̵̰͉̃ ̶̳̬̑Y̴̤̆͌0̶͚̮̈́u̴̱͌ͅ ̸͆͜w̸̥̟͗4̵̙͚͋ņ̶́͐T̸̳̅̓ ̷̛̻͇t̶̺̱̀0̷̛͜ ̸̧͇̈́̅K̵̢̉n̴͍̬͆͠0̴̠͕̑͑w̸̘̾͌w̷̡̪̉͒w̸̤͒͂w̵͚̪̔w̵̫̮̽̓w̸̗̲̌͑w̵̪̓̑ẃ̴̭͌w̶̙͑̃ͅẄ̴̺ẅ̸̫̙́ẁ̷̜̺̂w̸̱̎ẇ̴̝ẘ̸̨͠w̷̗̓w̸̻̑w̵̥͑ẁ̷̘̦w̴̡̖̽ẉ̵̆͜w̵̜͆ẉ̴̌w̶̦̎̍͜w̵̟͎͂w̶̜͕̾͘ŵ̵͖͘W̶̻̌W̴̫̿͑W̷̨̘͂̅Ẃ̷̢̓Ŵ̷͖̙Ẅ̷̻W̷̼̍w̵̩͓̑w̴̥̮̏w̶̜̑̚ẘ̵͙͗w̵̗̐̉ẅ̸͖͙w̷͈̔w̵̙̿͆w̸͖͒w̶̦̑̑ẃ̸͍̈́w̴̦̖̎͗w̷͓̋w̸͔̼̍ẁ̴͉̖w̴̲͛w̷̳̱̍̏w̶̻̆w̵̙̫̏w̷̟̏̓ẁ̶̧̺̏w̶̬̓̿ẃ̴̧͉̄w̸̢͗w̷̮͊͆w̷̪̏̐w̶̡̩͋̎w̴̲͈̋w̷̛͈̋w̵̭͔̉w̴̼͒w̷̝͚̃̈w̴̹̰̔̽w̶̻̘̐ẁ̵̧ẅ̴̗̙́͠ẅ̵̩̯́ẇ̸͖̹ŵ̶̳ẉ̸̀w̸̡̹͌w̴̭̦̄̕ẅ̴͓͝w̷͇̥͗W̴̖͛ẉ̴͑̑w̷͍̔̄w̶͇͎͋͆ẉ̶̦͛w̷̻̓ẃ̶̢͉̿w̴̑̍͜w̴͉͗ẅ̴̥́͜w̴̦̺͛͠w̷̡͖͂ẅ̵̧́̽w̸̘͕̍̍w̴̲̔̐w̶̗͕͋̀w̷̖̓̓w̵̡̮̿͑ẁ̵̺̪w̸͎͈͑w̴̺͕̽̆w̶̨͇͗̿w̸̼͑ẃ̴̉ͅw̶̟̐̽w̵̥̑͑W̸̢̰͋W̵̢͕̑W̷̜̞͂W̶̧̼͊̂W̸̟͆͛W̴̧̖͂̓Ẁ̵̝͉͆W̵̜͕͊͐Ẅ̷̢̬͝Ẅ̴̱̥́W̵̢͊̊w̸̜̓ŵ̷͍̲̚w̸̗͂͝w̵̧̱̌̈w̵̦̱͊w̶̪̬͒͐w̸̝̠͠w̵͇̯̉w̶̡͙̆̓ẉ̵̧̛́w̷͚̿̍ẇ̶̝ẃ̸̙w̸̘͖͛w̵̳͙̉w̵̡̲̃w̷̬̎͛ẉ̶̍̂ẁ̷̡͖̀w̷͔̃Ẃ̷̰̳͊w̴̠̝͑̂w̸̗̆́w̷͙̓w̷̱̃͐w̶̢̙̓̍w̴̻̠͝w̴̨̺͗̚w̴̥̦̏w̶̨͠Ẉ̴̕w̴̗͇̽w̴̧̪̓͘w̵̛̥̿w̴̪͋̋w̷̞͊w̷̻͝w̷͕͒͝w̶͕͛̐w̴̢͍̄w̴̙͊̏w̶̦̏́w̶̝̪͊ẅ̵͔́̈w̸̥̎̚w̴͖̻̃͆w̵̜͓̋͝w̶͇̱͒w̸͚̠͑w̸̛̭̙W̸̬͚͌?̴͑̈́ͅ`,
+                                                                choices: [
+                                                                    {
+                                                                        choice: "Y̵̰̺̎̈3̷͍͋̾S̵̘̘͛̂",
+                                                                        destination: 'death5'
                                                                     },
-                                                                        death8: {
-                                                                            conversation: `I WONDER.`,
-                                                                            defaultDestination: 'restart',
-                                                                            buttonText: "BUDDY4.EXE IS NO LONGER RESPONDING"
+                                                                    {
+                                                                        choice: "Ǹ̷͎̘́0̵̜̄̔",
+                                                                        destination: 'death5'
+                                                                    }
+                                                                ]
+                                                            },
+                                                                death5: {
+                                                                    conversation: `01000001 01101110 01100100 00100000 01110100 01101000 01100101 00100000 01100100 01110101 01110011 01110100 00100000 01110010 01100101 01110100 01110101 01110010 01101110 01110011 00100000 01110100 01101111 00100000 01110100 01101000 01100101 00100000 01100101 01100001 01110010 01110100 01101000 00100000 01100001 01110011 00100000 01101001 01110100 00100000 01110111 01100001 01110011 00101100 00100000 01100001 01101110 01100100 00100000 01110100 01101000 01100101 00100000 01110011 01110000 01101001 01110010 01101001 01110100 00100000 01110010 01100101 01110100 01110101 01110010 01101110 01110011 00100000 01110100 01101111 00100000 01000111 01101111 01100100 00100000 01110111 01101000 01101111 00100000 01100111 01100001 01110110 01100101 00100000 01101001 01110100 00101110`,
+                                                                    defaultDestination: 'death6',
+                                                                    buttonText: "CAN YOU DIE?"
+                                                                },
+                                                                    death6: {
+                                                                        conversation: `.......................................................................................`,
+                                                                        defaultDestination: 'death7',
+                                                                        buttonText: "..."
+                                                                    },
+                                                                        death7: {
+                                                                            conversation: `.............................................................................................................................................................................`,
+                                                                            defaultDestination: 'death8',
+                                                                            buttonText: "......"
                                                                         },
-                                                                        restart: {
-                                                                            conversation: `.................................................................................................`,
-                                                                            defaultDestination: 'introduction5',
-                                                                            buttonText: "MEET YOUR BUDDY"
-                                                                        },
+                                                                            death8: {
+                                                                                conversation: `I WONDER.`,
+                                                                                defaultDestination: 'restart',
+                                                                                buttonText: "BUDDY4.EXE IS NO LONGER RESPONDING"
+                                                                            },
+                                                                            restart: {
+                                                                                conversation: `.................................................................................................`,
+                                                                                defaultDestination: 'introduction5',
+                                                                                buttonText: "MEET YOUR BUDDY"
+                                                                            },
                     fish: {
                         conversation: `I like fishing too! Look! I caught one!  (*^_^;)_o/━━━━━━>ﾟ)))≫彡 ~ ~ ~  <º)))>< ~ ~ `,
                         choices: [
