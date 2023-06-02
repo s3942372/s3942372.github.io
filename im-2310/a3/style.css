@@ -43,6 +43,7 @@ input {
     background-image: radial-gradient(#262626, #262626 120%);
     display: block;
     margin-top: 1vh;
+    cursor: pointer;
 }
 /* The input name function is present once in the entire experience and never shows again, but it's important since it is what the users will type 
 their name into. Now, if I were more familiar with coding, and this not need to be a website, I would've liked to do something similar to what a 
