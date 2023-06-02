@@ -30,6 +30,9 @@ now performed by AI cause humans are all out of a job maybe - and so the dark, o
 experience just that bit more creepy. The buttons do still stand out enough to be visible against the background without having to strain your 
 eyes, unless of course your eyes are very bad at picking up hues. */
 
+/* The pointer cursors are, of course, to let users know that there is something interactable. I initially wanted to use the cursor that indicates 
+there as somewhere you can type, but since the radio options in the experience are also inputs I decided to go with the pointer cursor instead. */
+
 input {
     color: #dbdbdb;
     text-shadow: 0 0 4px #dbdbdb;
